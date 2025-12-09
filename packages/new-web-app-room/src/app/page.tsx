@@ -7,7 +7,7 @@ type Position = { x: number; y: number };
 
 const GRID_SIZE = 20;
 const CELL_SIZE = 20;
-const INITIAL_SPEED = 150;
+const INITIAL_SPEED = 250; // Easy mode: slower speed
 
 export default function PacManGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -21,10 +21,8 @@ export default function PacManGame() {
   const dotsRef = useRef<boolean[][]>([]);
   const ghostsRef = useRef<Position[]>([
     { x: 5, y: 5 },
-    { x: 15, y: 5 },
-    { x: 5, y: 15 },
     { x: 15, y: 15 }
-  ]);
+  ]); // Easy mode: only 2 ghosts
 
   // Initialize dots
   useEffect(() => {
@@ -80,8 +78,6 @@ export default function PacManGame() {
     nextDirectionRef.current = 'RIGHT';
     ghostsRef.current = [
       { x: 5, y: 5 },
-      { x: 15, y: 5 },
-      { x: 5, y: 15 },
       { x: 15, y: 15 }
     ];
     
@@ -258,4 +254,7 @@ export default function PacManGame() {
     </div>
   );
 }
+
+
+
 
